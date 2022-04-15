@@ -92,3 +92,67 @@ public class TicTacToeGame {
 
 		SymmetryReset();
 	}
+public boolean equals(Object o) {
+		if(o == null) {
+    		return false;
+    	}
+    	if(getClass() != o.getClass()){
+    		return false;
+    	}
+
+    	TicTacToeGame ticTacToeGame = (TicTacToeGame)o;
+
+    	if((totalRounds != ticTacToeGame.totalRounds) 	|| (rows != ticTacToeGame.rows) 	|| (columns != ticTacToeGame.columns)||	(totalsCellsRequiredToWin != 
+ticTacToeGame.totalsCellsRequiredToWin)){
+    		return false;
+    	}
+    	for(int i = 0; i < board.length ; i++ ) {
+			if(board[i]!= ticTacToeGame.board[i]) {
+				return false;
+			}
+		}
+		return true;
+    }
+
+	public int getTotalRounds(){
+		return totalRounds;
+	}
+
+	public StatesOfAnyGame getStateOfGame(){
+		return statesOfAnyGame;
+	}
+
+	public ValuesOfCell nextValueInCell(){
+		return (totalRounds%2 == 0) ? ValuesOfCell.X : ValuesOfCell.O;
+	}
+
+	public ValuesOfCell returnValueAtParticularIndex(int i) {
+
+		if(i < 0 || i >= rows*columns){
+			throw new IllegalArgumentException("Illegal position: " + i);
+		}
+
+		return board[i];
+	}
+
+	public void start(int i) {
+
+		if(i < 0 || i >= rows*columns){
+			throw new IllegalArgumentException("Wrong position: " + i);
+		}
+		if(board[i] != ValuesOfCell.EMPTY) {
+			throw new IllegalArgumentException("ValueInCell is not empty: " + i + " game " + toString());
+		}
+
+		board[i] = nextValueInCell();
+		totalRounds++;
+		if(statesOfAnyGame != StatesOfAnyGame.Playing) {
+			System.out.println(" ");
+		} else {
+			GameStateSetter(i);
+		}
+
+	}
+
+	int who = 0;
+
