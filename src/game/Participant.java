@@ -22,13 +22,12 @@ public abstract class Participant {
 		sWindow = new char[200];
 		currSIdx= 0;
 	}
-	
+
 	public abstract void start(TicTacToeGame ticTacToeGame);
 
 	public void startNewGame(ValuesOfCell currMov){
 		this.currMov = currMov;
 	}
-
 
 	public void gameOver(StatesOfAnyGame outcome){
 		if(outcome == StatesOfAnyGame.conditionDraw) {
@@ -84,7 +83,7 @@ public abstract class Participant {
 				}
 			}
 			outcome += " In latest 200 rounds, player won: " + wins + " rounds, lost: "
-				+ loses + " rounds, and draws: " + draws + " rounds.";
+					+ loses + " rounds, and draws: " + draws + " rounds.";
 		}
 		return outcome;
 	}
@@ -118,6 +117,5 @@ public abstract class Participant {
 		}
 		return outcome;
 	}
-
 
 }
