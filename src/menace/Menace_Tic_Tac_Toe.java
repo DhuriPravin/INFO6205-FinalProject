@@ -53,4 +53,11 @@ public class Menace_Tic_Tac_Toe extends TicTacToeGame {
 			totalBeads += alpha/8;
 		}
 	}
+
+	public void updateBeats(int numberOfBeads) {
+		if (totalBeads > 1) {
+			bead[playedCells] += numberOfBeads;
+			totalBeads += numberOfBeads;
+		}
+	}
 }
