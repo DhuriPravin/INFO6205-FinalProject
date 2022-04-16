@@ -50,4 +50,31 @@ public class Optimal_Tic_Tac_Toe extends TicTacToeGame {
         }
     }
 
+    public int selectOptimalMove(){
+        if(getStateOfGame() != StatesOfAnyGame.Playing){
+            throw new IllegalStateException("Game does not exist or already finished");
+        }
+        int choices = 0;
+        for(int i : possibleOutcomes) {
+            if(i == outcomeOfGame)
+                choices++;
+        }
+        int selectRandomChoice = Utils.RandomGenerator.nextInt(choices);
+        int currentChoice = 0;
+        boolean find = true;
+        while(find) {
+            if(possibleOutcomes[boardTransformation[currentChoice]] == outcomeOfGame){
+                if(selectRandomChoice == 0) {
+                    find = false;
+                } else {
+                    selectRandomChoice--;
+                    currentChoice++;
+                }
+            } else {
+                currentChoice++;
+            }
+        }
+        return currentChoice;
+    }
+
 }
