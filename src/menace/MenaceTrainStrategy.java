@@ -141,4 +141,32 @@ public class MenaceTrainStrategy extends Participant {
 		}
 		gamesPlayed = new LinkedList<Menace_Tic_Tac_Toe>();
 	}
+
+	public void start(TicTacToeGame ticTacToeGame) {
+		if(ticTacToeGame.getTotalRounds() == ticTacToeGame.rows*ticTacToeGame.columns){
+			throw new IllegalArgumentException("Game does not exists or already finished!");
+		}
+		if (ticTacToeGame.getTotalRounds() < 8) {
+			for (LinkedList<Menace_Tic_Tac_Toe> menace_tic_tac_toes: possibleCasesOrMatchboxes) {
+				for (Menace_Tic_Tac_Toe gameMatchBox: menace_tic_tac_toes) {
+					if(ticTacToeGame.equalsWithSymmetry(gameMatchBox)) {
+						ticTacToeGame.start(ticTacToeGame.boardTransformation[gameMatchBox.decideMove()]);
+						gamesPlayed.add(gameMatchBox);
+						return;
+					}
+				}
+			}
+		}
+
+		else {
+			for (int indexCell = 0; indexCell < 9; indexCell++) {
+				if (ticTacToeGame.returnValueAtParticularIndex(indexCell) == ValuesOfCell.EMPTY) {
+
+					ticTacToeGame.start(indexCell);
+					return;
+				}
+			}
+		}
+		throw new IllegalStateException("Game does not exist: " + ticTacToeGame);
+	}
 }
