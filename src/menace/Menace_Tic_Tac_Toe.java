@@ -22,4 +22,13 @@ public class Menace_Tic_Tac_Toe extends TicTacToeGame {
 		}
 		totalBeads = 0;
 	}
+
+	public Menace_Tic_Tac_Toe(Menace_Tic_Tac_Toe menaceTicTacToe, int next) {
+		super(menaceTicTacToe, next);
+		bead = new int[9];
+		for (int indexCell = 0; indexCell < 9; indexCell++) {
+			bead[indexCell] = 0;
+		}
+		totalBeads = 0;
+	}
 }
