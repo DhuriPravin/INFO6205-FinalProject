@@ -11,5 +11,11 @@ public class Optimal_Tic_Tac_Toe extends TicTacToeGame {
     public static final int conditionDraw = 3;
     private int[] possibleOutcomes;
     private int outcomeOfGame;
+
+    public Optimal_Tic_Tac_Toe(){
+        super(3,3,3);
+        possibleOutcomes = new int[9];
+        outcomeOfGame = noSetting;
+    }
     
 }
