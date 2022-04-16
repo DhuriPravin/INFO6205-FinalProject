@@ -89,38 +89,35 @@ public abstract class Participant {
 		return outcome;
 	}
 
+	public String showData() {
+		String outcome;
 
+		outcome = LoseCounts + "," + WinCounts + "," + DrawCounts;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		if(GamesCount >= 2000) {
+			int wins = 0;
+			int loses = 0;
+			int draws = 0;
+			for(char s: sWindow) {
+				switch(s){
+					case Winn:
+						wins++;
+						break;
+					case conditionLose:
+						loses++;
+						break;
+					case DDraw:
+						draws++;
+						break;
+					default:
+						System.out.println("Value not known: " + s);
+				}
+			}
+//			outocme += " In latest 200 rounds, player won: " + wins + " rounds, lost: "
+//					+ loses + " rounds, and draws: " + draws + " rounds.";
+		}
+		return outcome;
+	}
 
 
 }
