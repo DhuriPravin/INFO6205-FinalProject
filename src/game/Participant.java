@@ -58,6 +58,38 @@ public abstract class Participant {
 	}
 
 
+	public String toString(){
+		String outcome;
+
+		outcome = "Player won: " + WinCounts + ", Lost: "
+				+ LoseCounts + ", and Draw: " + DrawCounts + ".";
+
+		if(GamesCount >= 200) {
+			int wins = 0;
+			int loses = 0;
+			int draws = 0;
+			for(char s: sWindow) {
+				switch(s){
+					case Winn:
+						wins++;
+						break;
+					case conditionLose:
+						loses++;
+						break;
+					case DDraw:
+						draws++;
+						break;
+					default:
+						System.out.println("Value not known: " + s);
+				}
+			}
+			outcome += " In latest 200 rounds, player won: " + wins + " rounds, lost: "
+				+ loses + " rounds, and draws: " + draws + " rounds.";
+		}
+		return outcome;
+	}
+
+
 
 
 
