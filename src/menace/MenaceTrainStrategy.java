@@ -129,4 +129,16 @@ public class MenaceTrainStrategy extends Participant {
 			}
 		}
 	}
+
+	@Override
+	public void startNewGame(ValuesOfCell currMov) {
+		super.startNewGame(currMov);
+	    if (currMov == ValuesOfCell.X) {
+	    	possibleCasesOrMatchboxes = menaceMatchboxes;
+		}
+		else if (currMov == ValuesOfCell.O) {
+	    	possibleCasesOrMatchboxes = humanMatchboxes;
+		}
+		gamesPlayed = new LinkedList<Menace_Tic_Tac_Toe>();
+	}
 }
