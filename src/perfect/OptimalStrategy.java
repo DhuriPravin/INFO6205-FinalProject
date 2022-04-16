@@ -77,4 +77,21 @@ public class OptimalStrategy extends Participant {
             }
         }
     }
+
+    public  void start(TicTacToeGame ticTacToeGame) {
+
+        if(ticTacToeGame.getTotalRounds() == ticTacToeGame.rows*ticTacToeGame.columns){
+            throw new IllegalArgumentException("Finished!");
+        }
+        for(Optimal_Tic_Tac_Toe perfectGame: totalPlayoffs.get(ticTacToeGame.getTotalRounds())){
+            if(perfectGame.equalsWithSymmetry(ticTacToeGame)){
+                ticTacToeGame.start(perfectGame.selectOptimalMove());
+                return;
+            }
+        }
+
+        //Should not reach here.
+        throw new IllegalStateException("Not Found!!: " + ticTacToeGame);
+
+    }
 }
