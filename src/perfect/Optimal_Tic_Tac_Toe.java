@@ -17,4 +17,10 @@ public class Optimal_Tic_Tac_Toe extends TicTacToeGame {
         outcomeOfGame = noSetting;
     }
 
+    public Optimal_Tic_Tac_Toe(Optimal_Tic_Tac_Toe base, int following){
+        super(base,following);
+        possibleOutcomes = new int[9];
+        outcomeOfGame = noSetting;
+    }
+
 }
