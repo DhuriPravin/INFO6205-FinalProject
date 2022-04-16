@@ -130,6 +130,7 @@ public class MenaceTrainStrategy extends Participant {
 		}
 	}
 
+
 	@Override
 	public void startNewGame(ValuesOfCell currMov) {
 		super.startNewGame(currMov);
@@ -168,5 +169,39 @@ public class MenaceTrainStrategy extends Participant {
 			}
 		}
 		throw new IllegalStateException("Game does not exist: " + ticTacToeGame);
+	}
+
+	@Override
+	public void gameOver(StatesOfAnyGame outcome) {
+		super.gameOver(outcome);
+		if (outcome == StatesOfAnyGame.conditionDraw) {
+			for (Menace_Tic_Tac_Toe gamePlayed: gamesPlayed) {
+	        	gamePlayed.updateBeats(delta);
+	        }
+	    }
+	    else if (outcome == StatesOfAnyGame.MenaceWins) {
+	    	if (currMov == ValuesOfCell.X) {
+	    		for (Menace_Tic_Tac_Toe gamePlayed: gamesPlayed) {
+		            gamePlayed.updateBeats(beta);
+		        }
+	    	}
+	    	else {
+	    		for (Menace_Tic_Tac_Toe gamePlayed: gamesPlayed) {
+		            gamePlayed.updateBeats(gamma);
+		        }
+	    	}
+	    }
+	    else if (outcome == StatesOfAnyGame.HumanWins) {
+	    	if (currMov == ValuesOfCell.O) {
+	    		for (Menace_Tic_Tac_Toe gamePlayed: gamesPlayed) {
+		            gamePlayed.updateBeats(beta);
+		        }
+	    	}
+	    	else {
+	    		for (Menace_Tic_Tac_Toe gamePlayed: gamesPlayed) {
+		            gamePlayed.updateBeats(gamma);
+		        }
+	    	}
+	    }
 	}
 }
