@@ -8,5 +8,10 @@ import src.game.ValuesOfCell;
 import java.util.LinkedList;
 
 public class OptimalStrategy extends Participant {
-    
+
+    private LinkedList<LinkedList<Optimal_Tic_Tac_Toe>> totalPlayoffs;
+
+    public OptimalStrategy(){
+        
+    }
 }
