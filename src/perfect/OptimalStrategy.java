@@ -45,6 +45,36 @@ public class OptimalStrategy extends Participant {
             }
         }
 
-        
+        // Concatenating game results
+        for(int i=8; i>= 0; i--) {
+            for(Optimal_Tic_Tac_Toe optimal_tic_tac_toe: totalPlayoffs.get(i)){
+                if(optimal_tic_tac_toe.getOutcomeOfGame() == Optimal_Tic_Tac_Toe.noSetting) {
+                    for(int j=0; j < 9; j++) {
+                        if(optimal_tic_tac_toe.returnValueAtParticularIndex(j) == ValuesOfCell.EMPTY) {
+                            Optimal_Tic_Tac_Toe newGame = new Optimal_Tic_Tac_Toe(optimal_tic_tac_toe,j);
+                            // Looking for j's game
+                            for(Optimal_Tic_Tac_Toe existingGame: totalPlayoffs.get(i+1)){
+                                if(newGame.equalsWithSymmetry(existingGame)){
+                                    // Outcome reverse
+                                    if(existingGame.getOutcomeOfGame() == Optimal_Tic_Tac_Toe.conditionWin) {
+                                        optimal_tic_tac_toe.setOutcomeOfMove(j, Optimal_Tic_Tac_Toe.conditionLose);
+                                    } else if(existingGame.getOutcomeOfGame() == Optimal_Tic_Tac_Toe.conditionLose) {
+                                        optimal_tic_tac_toe.setOutcomeOfMove(j, Optimal_Tic_Tac_Toe.conditionWin);
+                                    } else if(existingGame.getOutcomeOfGame() == Optimal_Tic_Tac_Toe.conditionDraw) {
+                                        optimal_tic_tac_toe.setOutcomeOfMove(j, Optimal_Tic_Tac_Toe.conditionDraw);
+                                    } else {
+                                        System.out.println(existingGame);
+
+                                        throw new IllegalStateException("Error.");
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
     }
 }
