@@ -38,4 +38,16 @@ public class Optimal_Tic_Tac_Toe extends TicTacToeGame {
         }
     }
 
+    public int getOutcomeOfGame() {
+        if(getStateOfGame() == StatesOfAnyGame.MenaceWins || getStateOfGame() == StatesOfAnyGame.HumanWins ){
+            // from the viewpoint of a player who would have to start following, a
+            // game that has just been won is losing
+            return conditionLose;
+        } else if(getStateOfGame() == StatesOfAnyGame.conditionDraw ){
+            return conditionDraw;
+        } else {
+            return outcomeOfGame;
+        }
+    }
+
 }
