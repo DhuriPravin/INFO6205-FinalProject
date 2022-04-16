@@ -30,6 +30,35 @@ public abstract class Participant {
 	}
 
 
+	public void gameOver(StatesOfAnyGame outcome){
+		if(outcome == StatesOfAnyGame.conditionDraw) {
+			DrawCounts++;
+			sWindow[currSIdx] = DDraw;
+		} else if (outcome == StatesOfAnyGame.MenaceWins) {
+			if(currMov == ValuesOfCell.X) {
+				LoseCounts++;
+				sWindow[currSIdx] = Winn;
+			} else {
+				WinCounts++;
+				sWindow[currSIdx] = conditionLose;
+			}
+		} else if (outcome == StatesOfAnyGame.HumanWins) {
+			if(currMov == ValuesOfCell.O) {
+				LoseCounts++;
+				sWindow[currSIdx] = Winn;
+			} else {
+				WinCounts++;
+				sWindow[currSIdx] = conditionLose;
+			}
+		} else {
+			throw new IllegalArgumentException("Final Result can't be " + outcome);
+		}
+		GamesCount++;
+		currSIdx = (currSIdx+1)% 200;
+	}
+
+
+
 
 
 
