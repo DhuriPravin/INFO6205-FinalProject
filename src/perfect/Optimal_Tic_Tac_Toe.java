@@ -23,4 +23,19 @@ public class Optimal_Tic_Tac_Toe extends TicTacToeGame {
         outcomeOfGame = noSetting;
     }
 
+    public void setOutcomeOfMove(int playTurn, int result){
+        if(playTurn < 0 || playTurn >= possibleOutcomes.length ||
+                result < conditionWin || result > conditionDraw || possibleOutcomes[playTurn] != 0 ) {
+            throw new IllegalArgumentException();
+        }
+        possibleOutcomes[playTurn] = result;
+        if(result == conditionWin) {
+            outcomeOfGame = conditionWin;
+        } else if (result == conditionDraw && outcomeOfGame != conditionWin ) {
+            outcomeOfGame = conditionDraw;
+        } else if (result == conditionLose && outcomeOfGame == noSetting) {
+            outcomeOfGame = conditionLose;
+        }
+    }
+
 }
