@@ -31,4 +31,26 @@ public class Menace_Tic_Tac_Toe extends TicTacToeGame {
 		}
 		totalBeads = 0;
 	}
+
+	public void AssignBeads(int indexCell) {
+		if (indexCell < 0 || indexCell > 8) {
+			throw new IllegalArgumentException("Incorrect Input");
+		}
+		if ((getTotalRounds() == 0 || getTotalRounds() == 1)) {
+			bead[indexCell] += alpha;
+			totalBeads += alpha;
+		}
+		else if ((getTotalRounds() == 2 || getTotalRounds() == 3)) {
+			bead[indexCell] += alpha/2;
+			totalBeads += alpha/2;
+		}
+		else if ((getTotalRounds() == 4 || getTotalRounds() == 5)) {
+			bead[indexCell] += alpha/4;
+			totalBeads += alpha/4;
+		}
+		else if ((getTotalRounds() == 6 || getTotalRounds() == 7 || getTotalRounds() == 8)) {
+			bead[indexCell] += alpha/8;
+			totalBeads += alpha/8;
+		}
+	}
 }
