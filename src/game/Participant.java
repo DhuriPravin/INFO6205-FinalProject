@@ -22,6 +22,14 @@ public abstract class Participant {
 		sWindow = new char[200];
 		currSIdx= 0;
 	}
+	
+	public abstract void start(TicTacToeGame ticTacToeGame);
+
+	public void startNewGame(ValuesOfCell currMov){
+		this.currMov = currMov;
+	}
+
+
 
 
 
