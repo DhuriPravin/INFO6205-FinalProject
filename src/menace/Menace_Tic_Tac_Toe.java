@@ -7,7 +7,7 @@ import src.utils.Utils;
 public class Menace_Tic_Tac_Toe extends TicTacToeGame {
 
 	private int[] bead;
-
+	
 	int alpha =8;//start
 
 	private int totalBeads;
@@ -59,5 +59,22 @@ public class Menace_Tic_Tac_Toe extends TicTacToeGame {
 			bead[playedCells] += numberOfBeads;
 			totalBeads += numberOfBeads;
 		}
+	}
+
+	// start with random position
+	public int decideMove() {
+		if(getStateOfGame() != StatesOfAnyGame.Playing){
+			throw new IllegalStateException("Game doesn't exist or finished.");
+		}
+		int random = Utils.RandomGenerator.nextInt(totalBeads) + 1;
+		int sum = 0;
+		int indexCell = -1;
+		do {
+			indexCell++;
+			// Keep adding the number of bead
+		    sum += bead[indexCell];
+		} while (sum < random);
+		playedCells = indexCell;
+		return indexCell;
 	}
 }
