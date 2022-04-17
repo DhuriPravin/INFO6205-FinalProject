@@ -12,5 +12,12 @@ import java.util.Random;
 import java.io.Console;
 
 public class Utils {
+    public static final Random RandomGenerator = new Random();
+    public static final BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+    public static final String NEW_LINE = System.getProperty("line.separator");
+    private static final Logger logger = LogManager.getLogger(Utils.class);
+
+    public Utils() throws IOException {
+    }
     
 }
