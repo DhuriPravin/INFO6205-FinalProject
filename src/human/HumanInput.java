@@ -25,6 +25,9 @@ public class HumanInput extends Participant {
             } catch (NumberFormatException e) {
             	InputValue = -1;
             }
+		if(InputValue < 0 || InputValue >= (ticTacToeGame.rows*ticTacToeGame.columns)){
+            	System.out.println("Input should be between 1 and " + (ticTacToeGame.rows*ticTacToeGame.columns));
+            }
 	}
 	}
 
