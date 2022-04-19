@@ -13,6 +13,12 @@ public class HumanInput extends Participant {
 	while(!won) {
         	System.out.println(ticTacToeGame);
         	System.out.print("Enter input: ");
+			String InputResponse = null;
+			try {
+				InputResponse = Utils.console.readLine();
+			} catch (IOException e) {
+				System.out.println("Please enter a correct number from the above list.");
+			}
 	}
 	}
 
