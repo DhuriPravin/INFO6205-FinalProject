@@ -9,6 +9,11 @@ public class HumanInput extends Participant {
 		}
 
 	boolean won = false;
+
+	while(!won) {
+        	System.out.println(ticTacToeGame);
+        	System.out.print("Enter input: ");
+	}
 	}
 
 }
