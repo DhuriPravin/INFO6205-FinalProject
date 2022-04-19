@@ -19,6 +19,12 @@ public class HumanInput extends Participant {
 			} catch (IOException e) {
 				System.out.println("Please enter a correct number from the above list.");
 			}
+			int InputValue;
+        	try {
+                InputValue = Integer.parseInt(InputResponse)-1;
+            } catch (NumberFormatException e) {
+            	InputValue = -1;
+            }
 	}
 	}
 
