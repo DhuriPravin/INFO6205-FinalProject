@@ -72,5 +72,28 @@ public class Utils {
         }
     }
 
-    
+    public static ArrayList<String> inputs = new ArrayList<String>();
+
+    public static void addDefaults() {
+        for (int i = 0; i < 10; i++) {
+            inputs.add("");
+        }
+    }
+
+    public static void removeAll() {
+        inputs = new ArrayList<String>();
+    }
+
+    public static void getText(Integer place, String text) {
+        inputs.set(place, "\u2B55");
+    }
+
+    public static void addText(Integer place) {
+        inputs.set(place, "X");
+    }
+
+    public static ArrayList<String> getText() {
+        return inputs;
+    }
+
 }
