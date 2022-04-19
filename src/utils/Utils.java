@@ -51,4 +51,26 @@ public class Utils {
         }
 
     }
+
+    public static  void flipElementsHorizontal(int rows, int columns, int[] boardTransformation){
+        if(boardTransformation == null) {
+            throw new NullPointerException("Incorrect input: Null");
+        }
+        if (rows < 1 || columns < 1) {
+            throw new IllegalArgumentException("Incorrect input of currRow or column.");
+        }
+        if (rows * columns != boardTransformation.length) {
+            throw new IllegalArgumentException("rows * columns must be equal to the length of the matrix");
+        }
+        for (int currRow = 0; currRow < rows / 2; currRow++) {
+            int RowOpposite = rows - currRow - 1;
+            for (int currColumn = 0; currColumn < columns; currColumn++) {
+                int temp = boardTransformation[currRow * columns + currColumn];
+                boardTransformation[currRow * columns + currColumn] = boardTransformation[RowOpposite * columns + currColumn];
+                boardTransformation[RowOpposite * columns + currColumn] = temp;
+            }
+        }
+    }
+
+    
 }
