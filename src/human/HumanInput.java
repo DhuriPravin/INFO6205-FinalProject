@@ -27,6 +27,8 @@ public class HumanInput extends Participant {
             }
 		if(InputValue < 0 || InputValue >= (ticTacToeGame.rows*ticTacToeGame.columns)){
             	System.out.println("Input should be between 1 and " + (ticTacToeGame.rows*ticTacToeGame.columns));
+            } else if(ticTacToeGame.returnValueAtParticularIndex(InputValue) != ValuesOfCell.EMPTY) {
+            	System.out.println("Incorrect indexCell input. Enter indexCell which has not been played.");
             }
 	}
 	}
