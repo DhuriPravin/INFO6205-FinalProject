@@ -82,5 +82,14 @@ public class FileUtils {
         }
     }
 
+    public static String getTimestampString(long timeStampInMillis) {
+        if (timeStampInMillis == -1) {
+            return "";
+        }
+        Date newDate = new Date();
+        newDate.setTime(timeStampInMillis);
+        return newDate.toString();
+    }
+
 }
 
