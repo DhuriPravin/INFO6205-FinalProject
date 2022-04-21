@@ -50,4 +50,46 @@ public class Execute_Tic_Tac_Toe {
         System.out.println("Player: " + participants[1]) ;
 
     }
+
+    public static void flushAllLogs()
+    {
+        try
+        {
+            Set<FileAppender> flushedFileAppenders = new HashSet<FileAppender>();
+            Enumeration currentLoggers = LogManager.getLoggerRepository().getCurrentLoggers();
+            while(currentLoggers.hasMoreElements())
+            {
+                Object nextLogger = currentLoggers.nextElement();
+                if(nextLogger instanceof Logger)
+                {
+                    Logger currentLogger = (Logger) nextLogger;
+                    Enumeration allAppenders = currentLogger.getAllAppenders();
+                    while(allAppenders.hasMoreElements())
+                    {
+                        Object nextElement = allAppenders.nextElement();
+                        if(nextElement instanceof FileAppender)
+                        {
+                            FileAppender fileAppender = (FileAppender) nextElement;
+                            if(!flushedFileAppenders.contains(fileAppender) && !fileAppender.getImmediateFlush())
+                            {
+                                flushedFileAppenders.add(fileAppender);
+                                //log.info("Appender "+fileAppender.getName()+" is not doing immediateFlush ");
+                                fileAppender.setImmediateFlush(true);
+                                currentLogger.info("FLUSH");
+                                fileAppender.setImmediateFlush(false);
+                            }
+                            else
+                            {
+                                //log.info("fileAppender"+fileAppender.getName()+" is doing immediateFlush");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        catch(RuntimeException e)
+        {
+            logger.error("Failed flushing logs",e);
+        }
+    }
 }
