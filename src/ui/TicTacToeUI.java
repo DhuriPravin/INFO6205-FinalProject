@@ -26,4 +26,15 @@ public class TicTacToeUI extends JWindow {
         }
     }
 
+    private static ArrayList<JButton> buttons = new ArrayList<JButton>();
+    private static JButton button1 = new JButton("");
+    private static JButton button2 = new JButton("");
+    private static JButton button3 = new JButton("");
+    private static JButton button4 = new JButton("");
+    private static JButton button5 = new JButton("");
+    private static JButton button6 = new JButton("");
+    private static JButton button7 = new JButton("");
+    private static JButton button8 = new JButton("");
+    private static JButton button9 = new JButton("");
+
 }
