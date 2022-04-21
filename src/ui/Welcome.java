@@ -5,10 +5,6 @@ import java.awt.*;
 
 public class Welcome extends JWindow {
 
-    public static void main(String[] args) {
-        welcome();
-    }
-
 	public static void welcome() {
         TicTacToeUI.dispatchWindows();
         JLabel label = new JLabel(new ImageIcon(Welcome.class.getResource("welcome.gif")));

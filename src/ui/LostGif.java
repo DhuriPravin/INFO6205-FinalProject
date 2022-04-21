@@ -4,10 +4,6 @@ import javax.swing.*;
 
 public class LostGif extends JWindow {
 
-    public static void main(String[] args) {
-        lost();
-    }
-
     public static void lost() {
         TicTacToeUI.dispatchWindows();
         JLabel label = new JLabel(new ImageIcon(LostGif.class.getResource("lost.gif")));
