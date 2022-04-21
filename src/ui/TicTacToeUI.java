@@ -20,22 +20,22 @@ import java.util.ArrayList;
 public class TicTacToeUI extends JWindow {
 
     public static void dispatchWindows() {
-        java.awt.Window win[] = java.awt.Window.getWindows();
+        java.awt.Window[] win = java.awt.Window.getWindows();
         for(int i=0;i<win.length;i++){
             win[i].dispose();
         }
     }
 
-    private static ArrayList<JButton> buttons = new ArrayList<JButton>();
-    private static JButton button1 = new JButton("");
-    private static JButton button2 = new JButton("");
-    private static JButton button3 = new JButton("");
-    private static JButton button4 = new JButton("");
-    private static JButton button5 = new JButton("");
-    private static JButton button6 = new JButton("");
-    private static JButton button7 = new JButton("");
-    private static JButton button8 = new JButton("");
-    private static JButton button9 = new JButton("");
+    private static final ArrayList<JButton> buttons = new ArrayList<JButton>();
+    private static final JButton button1 = new JButton("");
+    private static final JButton button2 = new JButton("");
+    private static final JButton button3 = new JButton("");
+    private static final JButton button4 = new JButton("");
+    private static final JButton button5 = new JButton("");
+    private static final JButton button6 = new JButton("");
+    private static final JButton button7 = new JButton("");
+    private static final JButton button8 = new JButton("");
+    private static final JButton button9 = new JButton("");
 
     public static void addAllButtons() {
         buttons.add(button1);

@@ -8,7 +8,7 @@ public class Optimal_Tic_Tac_Toe extends TicTacToeGame {
     public static final int conditionWin  = 1;
     public static final int conditionLose = 2;
     public static final int conditionDraw = 3;
-    private int[] possibleOutcomes;
+    private final int[] possibleOutcomes;
     private int outcomeOfGame;
 
     public Optimal_Tic_Tac_Toe(){

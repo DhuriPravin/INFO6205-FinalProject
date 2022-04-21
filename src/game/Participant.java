@@ -6,7 +6,7 @@ public abstract class Participant {
 	private int WinCounts;
 	private int DrawCounts;
 	private int GamesCount;
-	private char[] sWindow;
+	private final char[] sWindow;
 	private int currSIdx;
 	protected ValuesOfCell currMov;
 
