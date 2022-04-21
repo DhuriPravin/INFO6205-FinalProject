@@ -21,7 +21,7 @@ public class TicTacToeUI extends JWindow {
 
     public static void dispatchWindows() {
         java.awt.Window win[] = java.awt.Window.getWindows();
-        for(int i=0;i<win.length;i++){
+        for (int i = 0; i < win.length; i++) {
             win[i].dispose();
         }
     }
@@ -49,4 +49,77 @@ public class TicTacToeUI extends JWindow {
         buttons.add(button9);
     }
 
+    static JButton button = null;
+
+    public static void showUI() {
+        final JFrame frame = new JFrame();
+        frame.getContentPane().setBackground(Color.BLACK);
+        frame.setTitle("Tic Tac Toe");
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        frame.getContentPane().removeAll();
+        frame.repaint();
+
+        final JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 5)) {
+            public Dimension getPreferredSize() {
+                Dimension ps = super.getPreferredSize();
+                ps.width = 0;
+                return ps;
+            }
+        };
+        panel.setBackground(Color.decode("#000000"));
+        frame.add(new JScrollPane(panel));
+
+        frame.setSize(445, 240);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+
+        //frame2.setVisible(true);
+
+//        try {
+//            try {
+//                SwingUtilities.invokeAndWait ( new Runnable ()
+//                {
+//                    public void run ()
+//                    {
+        frame.setVisible(true);
+//                    }
+//                } );
+//            } catch (InvocationTargetException e) {
+//                e.printStackTrace();
+//            }
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        final JDialog load = new JDialog(frame);
+
+        JPanel panel2 = new JPanel(new BorderLayout());
+        panel2.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        load.add(panel2);
+
+        final JProgressBar progressBar = new JProgressBar(0, 100);
+        panel2.add(progressBar);
+
+        load.setModal(false);
+        load.pack();
+        load.setLocationRelativeTo(frame);
+
+//        try {
+//            SwingUtilities.invokeAndWait ( new Runnable ()
+//            {
+//                public void run ()
+//                {
+//                    load.setVisible ( true );
+//                }
+//            } );
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (InvocationTargetException e) {
+//            e.printStackTrace();
+//        }
+
+        // = new JButton (String.valueOf(src.utils.Utils.getText().get(i)));
+        setButtonColor();
+
+    }
 }
