@@ -37,4 +37,16 @@ public class TicTacToeUI extends JWindow {
     private static JButton button8 = new JButton("");
     private static JButton button9 = new JButton("");
 
+    public static void addAllButtons() {
+        buttons.add(button1);
+        buttons.add(button2);
+        buttons.add(button3);
+        buttons.add(button4);
+        buttons.add(button5);
+        buttons.add(button6);
+        buttons.add(button7);
+        buttons.add(button8);
+        buttons.add(button9);
+    }
+
 }
