@@ -136,7 +136,56 @@ public class Execute_Tic_Tac_Toe {
             System.out.println("(5) Reset Training");
             System.out.println("(E) Exit");
             String userInput = null;
+            try {
+                userInput = Utils.console.readLine().toLowerCase();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if(userInput.equals("e")) {
+                stop = true;
+            } else if (userInput.equals("4")) {
+                participants[1] = menace;
+                train(participants);
+            } else if (userInput.equals("3")) {
+                participants[1] = random;
+                train(participants);
+            } else if (userInput.equals("5")) {
+                menace = new MenaceTrainStrategy();
+                participants[0] = menace;
+                menace = new MenaceTrainStrategy();
+            } else if (userInput.equals("2")) {
+                participants[1] = perfect;
+                train(participants);
+            } else if (userInput.equals("1")) {
+                Utils.removeAll();
+                TicTacToeUI.addAllButtons();
+                participants[1] = human;
+                TicTacToeGame ticTacTieGame;
+                ticTacTieGame = new TicTacToeGame();
+                int chance = 0;
+                participants[chance%2].startNewGame(ValuesOfCell.X);
+                participants[(chance+1)%2].startNewGame(ValuesOfCell.O);
+                while(ticTacTieGame.getStateOfGame() == StatesOfAnyGame.Playing) {
+                    participants[chance%2].start(ticTacTieGame);
+                    TicTacToeUI.dispatchWindows();
+                    TicTacToeUI.showUI();
+                    chance++;
+                }
+                if (ticTacTieGame.getStateOfGame() == StatesOfAnyGame.HumanWins) {
+                    WinnerGif.winner();
+                } else if (ticTacTieGame.getStateOfGame() == StatesOfAnyGame.MenaceWins) {
+                    LostGif.lost();
+                } else if (ticTacTieGame.getStateOfGame() == StatesOfAnyGame.conditionDraw) {
+                    GameDrawGif.draw();
+                }
+                participants[0].gameOver(ticTacTieGame.getStateOfGame());
+                participants[1].gameOver(ticTacTieGame.getStateOfGame());
+
+                System.out.println(ticTacTieGame);
+                System.out.println("Result: " + ticTacTieGame.getStateOfGame());
+                System.out.println(participants[0]);
+            }
         }
     }
 }
-}
+
