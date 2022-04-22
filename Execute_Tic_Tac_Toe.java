@@ -92,4 +92,51 @@ public class Execute_Tic_Tac_Toe {
             logger.error("Failed flushing logs",e);
         }
     }
+
+    public static void main(String[] args) {
+         BasicConfigurator.configure();
+         flushAllLogs();
+
+         Welcome.welcome();
+
+         System.out.println(" " +
+                 " ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ \n" +
+                 "▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌\n" +
+                 " ▀▀▀▀█░█▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀       ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀       ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ \n" +
+                 "     ▐░▌          ▐░▌     ▐░▌                    ▐░▌     ▐░▌       ▐░▌▐░▌                    ▐░▌     ▐░▌       ▐░▌▐░▌          \n" +
+                 "     ▐░▌          ▐░▌     ▐░▌                    ▐░▌     ▐░█▄▄▄▄▄▄▄█░▌▐░▌                    ▐░▌     ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄ \n" +
+                 "     ▐░▌          ▐░▌     ▐░▌                    ▐░▌     ▐░░░░░░░░░░░▌▐░▌                    ▐░▌     ▐░▌       ▐░▌▐░░░░░░░░░░░▌\n" +
+                 "     ▐░▌          ▐░▌     ▐░▌                    ▐░▌     ▐░█▀▀▀▀▀▀▀█░▌▐░▌                    ▐░▌     ▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀ \n" +
+                 "     ▐░▌          ▐░▌     ▐░▌                    ▐░▌     ▐░▌       ▐░▌▐░▌                    ▐░▌     ▐░▌       ▐░▌▐░▌          \n" +
+                 "     ▐░▌      ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄           ▐░▌     ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄           ▐░▌     ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ \n" +
+                 "     ▐░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌          ▐░▌     ▐░▌       ▐░▌▐░░░░░░░░░░░▌          ▐░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌\n" +
+                 "      ▀       ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀            ▀       ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀            ▀       ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀ \n" +
+                 "                                                                                                                               ");
+
+         System.out.println("Made by: ");
+         System.out.println("- Prathamesh Sahasrabuddhe 002117703");
+         System.out.println("- Vivek Sharma 002105272");
+         System.out.println("- Pravin Dhuri 002138314");
+         System.out.println("\n");
+
+        MenaceTrainStrategy menace = new MenaceTrainStrategy();
+        RandomTrainStrategy random = new RandomTrainStrategy();
+        OptimalStrategy perfect = new OptimalStrategy();
+        HumanInput human = new HumanInput();
+
+        Participant[] participants = new Participant[2];
+
+        participants[0] = new MenaceTrainStrategy();
+        boolean stop = false;
+        while(!stop) {
+            System.out.println("(1) Play with Menace");
+            System.out.println("(2) Train Menace with Optimal Strategy");
+            System.out.println("(3) Train Menace Randomly");
+            System.out.println("(4) Train Menace Vs. Menace");
+            System.out.println("(5) Reset Training");
+            System.out.println("(E) Exit");
+            String userInput = null;
+        }
+    }
+}
 }
