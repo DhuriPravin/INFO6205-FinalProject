@@ -3,7 +3,7 @@ import org.junit.Assert;
 
 public class RunTests {
 
-	@Test
+    @Test
     public void checkHorizontalFlipsIncorrect() {
         Throwable throwable = Assert.assertThrows(IllegalArgumentException.class, ()-> {
             UtilsToString.checkFlipElementsHorizontal(0, 0);
@@ -29,7 +29,7 @@ public class RunTests {
     public void checkHorizontalFlips2X2() {
         Assert.assertEquals("[2, 3, 0, 1]", UtilsToString.checkFlipElementsHorizontal(2, 2));
     }
-    
+
     @Test
     public void checkVerticalFlip2X2(){
         Assert.assertEquals("[1, 0, 3, 2]", UtilsToString.checkFlipElementsVertical(2, 2));
@@ -49,7 +49,6 @@ public class RunTests {
     public void checkVerticalFlip3X3(){
         Assert.assertEquals("[2, 1, 0, 5, 4, 3, 8, 7, 6]", UtilsToString.checkFlipElementsVertical(3, 3));
     }
-
     @Test
     public void checkRotation3X3(){
         Assert.assertEquals("[6, 3, 0, 7, 4, 1, 8, 5, 2]", UtilsToString.checkElementsRotation(3, 3));

@@ -4,7 +4,7 @@ import src.utils.Utils;
 
 public class TicTacToeGame {
 
-	private final ValuesOfCell[] board;
+	private ValuesOfCell[] board;
 
 	private int totalRounds; // records total rounds
 
@@ -21,7 +21,7 @@ public class TicTacToeGame {
 
     private  static final Symmetry[] ALL_TRANSFORMATIONS_NON_SQUARE ={Symmetry.ID, Symmetry.HorizontalSymmetry,Symmetry.VerticalSymmetry, Symmetry.HorizontalSymmetry};
 
-    private final Symmetry[] allSymmetries; // instance to record symmetry
+    private  Symmetry[] allSymmetries; // instance to record symmetry
 
     private int currentTransformation; // number of transformations so far
 
@@ -141,7 +141,7 @@ public class TicTacToeGame {
 			throw new IllegalArgumentException("Wrong position: " + i);
 		}
 		if(board[i] != ValuesOfCell.EMPTY) {
-			throw new IllegalArgumentException("ValueInCell is not empty: " + i + " game " + this);
+			throw new IllegalArgumentException("ValueInCell is not empty: " + i + " game " + toString());
 		}
 
 		board[i] = nextValueInCell();

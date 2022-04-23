@@ -6,7 +6,7 @@ import src.utils.Utils;
 
 public class Menace_Tic_Tac_Toe extends TicTacToeGame {
 
-	private final int[] bead;
+	private int[] bead;
 	
 	int alpha =8;//start
 

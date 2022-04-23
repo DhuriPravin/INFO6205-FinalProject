@@ -1,5 +1,12 @@
 package src.human;
 
+import src.game.Participant;
+import src.game.TicTacToeGame;
+import src.game.ValuesOfCell;
+import src.utils.Utils;
+
+import java.io.IOException;
+
 public class HumanInput extends Participant {
 
 	public  void start(TicTacToeGame ticTacToeGame) {
@@ -8,9 +15,9 @@ public class HumanInput extends Participant {
 			throw new IllegalArgumentException("Game doesn't exist!");
 		}
 
-	boolean won = false;
+		boolean won = false;
 
-	while(!won) {
+		while(!won) {
         	System.out.println(ticTacToeGame);
         	System.out.print("Enter input: ");
 			String InputResponse = null;
@@ -25,12 +32,14 @@ public class HumanInput extends Participant {
             } catch (NumberFormatException e) {
             	InputValue = -1;
             }
-		if(InputValue < 0 || InputValue >= (ticTacToeGame.rows*ticTacToeGame.columns)){
+            if(InputValue < 0 || InputValue >= (ticTacToeGame.rows*ticTacToeGame.columns)){
             	System.out.println("Input should be between 1 and " + (ticTacToeGame.rows*ticTacToeGame.columns));
             } else if(ticTacToeGame.returnValueAtParticularIndex(InputValue) != ValuesOfCell.EMPTY) {
             	System.out.println("Incorrect indexCell input. Enter indexCell which has not been played.");
+            } else {
+            	ticTacToeGame.start(InputValue);
+            	won = true;
             }
+        }
 	}
-	}
-
 }

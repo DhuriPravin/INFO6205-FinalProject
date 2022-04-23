@@ -14,13 +14,13 @@ public class MenaceTrainStrategy extends Participant {
 	int delta=1;//conditionDraw
 
 	// Storing the list of all similar games
-	private final LinkedList<LinkedList<Menace_Tic_Tac_Toe>> totalPlayoffs;
+	private LinkedList<LinkedList<Menace_Tic_Tac_Toe>> totalPlayoffs;
 
 	// Storing the list of all matches for Menace
-	private final LinkedList<LinkedList<Menace_Tic_Tac_Toe>> menaceMatchboxes;
+	private LinkedList<LinkedList<Menace_Tic_Tac_Toe>> menaceMatchboxes;
 
 	// Storing the list of all matches for Human
-	private final LinkedList<LinkedList<Menace_Tic_Tac_Toe>> humanMatchboxes;
+	private LinkedList<LinkedList<Menace_Tic_Tac_Toe>> humanMatchboxes;
 
 	// Storing the list of all variables depending on the player
 	private LinkedList<LinkedList<Menace_Tic_Tac_Toe>> possibleCasesOrMatchboxes;

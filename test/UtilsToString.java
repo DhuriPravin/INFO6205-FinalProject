@@ -1,6 +1,7 @@
 import Utils.Utils;
 
 public class UtilsToString {
+
     public static String checkFlipElementsHorizontal(int rows, int columns) {
         int[] test;
         test = new int[rows*columns];

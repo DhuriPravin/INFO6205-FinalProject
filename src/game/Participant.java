@@ -6,7 +6,7 @@ public abstract class Participant {
 	private int WinCounts;
 	private int DrawCounts;
 	private int GamesCount;
-	private final char[] sWindow;
+	private char[] sWindow;
 	private int currSIdx;
 	protected ValuesOfCell currMov;
 
@@ -83,7 +83,7 @@ public abstract class Participant {
 				}
 			}
 			outcome += " In latest 200 rounds, player won: " + wins + " rounds, lost: "
-					+ loses + " rounds, and draws: " + draws + " rounds.";
+				+ loses + " rounds, and draws: " + draws + " rounds.";
 		}
 		return outcome;
 	}
@@ -117,5 +117,5 @@ public abstract class Participant {
 		}
 		return outcome;
 	}
-
+	 
 }

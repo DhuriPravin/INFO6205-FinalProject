@@ -31,37 +31,37 @@ public class FileUtils {
         }
     }
 
-    public static void writeResultsToFile(String accelRow, long time){
+    public static void writeResultsToFile(String inputRow, long time){
         PrintWriter printWriter = null;
-        String data = getTimestampString(time) + ", " + accelRow;
+        String data = getTimestampString(time) + ", " + inputRow;
 
         String dayFormat = "yyyy-MM-dd";
         String hourFormat = "HH-z";
-        String minuteForma = "mm";
+        String minuteFormat = "mm";
 
         Date dateNow = new Date();
         String dayDirectory = new SimpleDateFormat(dayFormat, Locale.US).format(dateNow);
         String hourDirectory = new SimpleDateFormat(hourFormat, Locale.US).format(dateNow);
-        String minuteDirectory = new SimpleDateFormat(minuteForma, Locale.US).format(dateNow);
+        String minuteDirectory = new SimpleDateFormat(minuteFormat, Locale.US).format(dateNow);
 
-        String watchAccelDataDirectory = "logs" + "/" + dayDirectory + "/" + hourDirectory + "/" + minuteDirectory + "/" + "Data.csv";
-        File watchAccelDataFile = new File(watchAccelDataDirectory);
+        String logDirectory = "logs" + "/" + dayDirectory + "/" + hourDirectory + "/" + minuteDirectory + "/" + "Data.csv";
+        File logFile = new File(logDirectory);
 
-        if(!watchAccelDataFile.getParentFile().exists()){
-            watchAccelDataFile.getParentFile().mkdirs();
+        if(!logFile.getParentFile().exists()){
+            logFile.getParentFile().mkdirs();
         }
 
-        if(watchAccelDataFile.exists()) {
+        if(logFile.exists()) {
             try {
                 printWriter =
-                        new PrintWriter(new BufferedWriter(new FileWriter(watchAccelDataFile, true)));
+                        new PrintWriter(new BufferedWriter(new FileWriter(logFile, true)));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
         try{
-            if (watchAccelDataFile.createNewFile()){
+            if (logFile.createNewFile()){
                 String headerRow = "timestamp, unixtime, auc, watchWorn, sleepmode, wakemode, waketime, sleeptime";
                 if (printWriter != null) {
                     printWriter.println(headerRow);
@@ -90,6 +90,4 @@ public class FileUtils {
         newDate.setTime(timeStampInMillis);
         return newDate.toString();
     }
-
 }
-
